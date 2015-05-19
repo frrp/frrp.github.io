@@ -2,8 +2,9 @@
 
 body {
   padding:50px;
-  font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color:#000000;
+  font: 100%/1.5em 'Nobile', sans-serif;
+  /* font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif; */
+  color:#333;
   font-weight:300;
 }
 
