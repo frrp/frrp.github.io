@@ -28,25 +28,13 @@
        <!img alt="Blog Bookmark Icon" class="bookmark" src="/images/bookmark_blog.png">
      </a>
        <h1>Blog</h1>
-               <article>
-               <h2 class="unspaced"><a href="#what-i-have-lived-for">What I have lived for</a></h2>
-                             
-<blockquote>
-  <p>“What I have Lived for? Three passions, simple but overwhelmingly strong, have governed my life: the longing for love, the search for knowledge, and unbearable pity for the suffering of mankind. These passions, like great winds, have blown me hither and thither, in a wayward course, over a deep ocean of anguish, reaching to the very verge of despair.</p>
-  <p>I have sought love, first, because it brings ecstasy - ecstasy so great that I would often have sacrificed all the rest of life for a few hours of this joy. I have sought it, next, because it relieves loneliness - that terrible loneliness in which one shivering consciousness looks over the rim of the world into the cold unfathomable lifeless abyss. I have sought it, finally, because in the union of love I have seen, in a mystic miniature, the prefiguring vision of the heaven that saints and poets have imagined. This is what I sought, and though it might seem too good for human life, this is what - at last - I have found.</p>
-  <p>With equal passion I have sought knowledge. I have wished to understand the hearts of men. I have wished to know why the stars shine. And I have tried to apprehend the Pythagorean power by which number holds sway above the flux. A little of this, but not much, I have achieved.</p>
-  <p>Love and knowledge, so far as they were possible, led upward toward the heavens. But always pity brought me back to earth. Echoes of cries of pain reverberate in my heart. Children in famine, victims tortured by oppressors, helpless old people a hated burden to their sons, and the whole world of loneliness, poverty, and pain make a mockery of what human life should be. I long to alleviate the evil, but I cannot, and I too suffer. This has been my life. I have found it worth living, and would gladly live it again if the chance were offered me.”</p>
-  <p> -- Bertrand Russell </p>
-</blockquote>
-</article>
-
 <article>
   <h2  class="unspaced"><a href="#crypto-benchmarks">Benchmarking client side cryptography</a></h2>
 <p>
 Even though there are good reasons to consider javascript cryptography harmful [1], there are libraries being developed and products being build.
 <p>
 One of the products is Cryptelo [2], an end-to-end encrypted file sharing service currently in heavy development.
-
+Cryptelo leverages the advantages of clojure tools, especially cljx to build for the JVM and javascript from the same codebase. This makes comparing the platforms much more straightforward.
 Together with the Cryptelo team I tried to answer the question what performance we can expect from the client side crypto implementations on different platforms.
 </p>
 <p>
@@ -55,9 +43,9 @@ In particular the platforms of interest were javascript in desktop and mobile br
 The crypto algorithms tested were the cipher AES, the key derivation function PBKDF2, key derivation on elliptic curves for the Diffie-Hellman key exchange and signing and signature verification.
 </p>
 <p>
-We learned that on MacBook Pro from 2011, to encrypt 7MB file with AES it took 3.4s in Chrome 42, 2.9s in Safari 8 and 2.6s in Firefox 38. Surprisingly to decrypt the file, Safari needed twice the time of encrypting it.
+We learned that on a MacBook Pro from 2011, to encrypt a file of size 7MB using AES took 3.4s in Chrome 42, 2.9s in Safari 8 and 2.6s in Firefox 38. Surprisingly to decrypt the file, Safari needed twice the time of encrypting it.
 Implementation in JVM on the same machine managed to complete the same task in about 85ms.
-Ipad Air 2 from 2014 managed to encrypt the 7MB file in 22.6s in Safari and just 24ms in native objective-C code.
+Ipad Air 2 from 2014 encrypted the 7MB file in 22.6s in Safari and in just 24ms in native objective-C code.
 40k iterations of PBKDF2 took from 260ms to 307ms in browsers and about 58ms in JVM on the MacBook. On the Ipad Air 2 it was 650ms in the browser and 20ms in the native code.
 Finally the operations on elliptic curves. Derivation of the shared secret in DH (without and with hashing) took from 51 to 71ms in the browsers on the MacBook, and around 1.3ms in JVM. Signing of SHA-256 hash (32 bytes) took from 13.6ms to 20.4ms in browsers and 1.9ms in JVM. Finally the verification took from 64ms to 90ms in browsers and 1.7ms in JVM.
 </p>
