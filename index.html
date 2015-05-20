@@ -59,7 +59,7 @@ We learned that on MacBook Pro from 2011, to encrypt 7MB file with AES it took 3
 Implementation in JVM on the same machine managed to complete the same task in about 85ms.
 Ipad Air 2 from 2014 managed to encrypt the 7MB file in 22.6s in Safari and just 24ms in native objective-C code.
 40k iterations of PBKDF2 took from 260ms to 307ms in browsers and about 58ms in JVM on the MacBook. On the Ipad Air 2 it was 650ms in the browser and 20ms in the native code.
-Finally the operations on elliptic curves. Derivation of the shared secret in DH (without and with hashing) took from 51 to 71ms in the browsers on the MacBook, and around 1,3ms in JVM. Signing of SHA-256 hash (32 bytes) took from 13.6ms to 20.4ms in browsers and 1.9ms in JVM. Finally the verification took from 64ms to 90ms in browsers and 1.7ms in JVM.
+Finally the operations on elliptic curves. Derivation of the shared secret in DH (without and with hashing) took from 51 to 71ms in the browsers on the MacBook, and around 1.3ms in JVM. Signing of SHA-256 hash (32 bytes) took from 13.6ms to 20.4ms in browsers and 1.9ms in JVM. Finally the verification took from 64ms to 90ms in browsers and 1.7ms in JVM.
 </p>
 <p>
 Ipad Air 2 did 40k iterations of PBKDF2 in 650ms in the browsers and 20ms in the native code. Deriving shared key took about 283ms in browser and 5.2ms in native code.
@@ -71,10 +71,10 @@ We also tested other mobile devices, laptops and operating systems, and differen
 To conclude, the performance of the standard cryptographic algorithms implemented in javascript is reasonable for files up to several megabytes on modern mobile devices and up to several tens of megabytes on laptops. Implementation in objective-C is lightning fast in comparison and implementation in JVM on laptops is fast for even large files.
 </p>
 
-<b>References:</b><br><br>
+<b>References:</b>
 <br><br>[1] http://matasano.com/articles/javascript-cryptography/
 <br><br>[2] www.cryptelo.com
-<br><br>[3] https://docs.google.com/spreadsheets/d/1RVK9ixIf2bUeUTxVxqMTpE4iC4gsr6ssfAVK9Ymm5_8/edit?usp=sharing
+<br><br>[3] http://bit.ly/1PxujKA
 <br><br>
     </article>
 
