@@ -31,14 +31,14 @@
 <article>
   <h2  class="unspaced"><a href="#crypto-benchmarks">Benchmarking client side cryptography</a></h2>
 <p>
-Even though there are good reasons to consider javascript cryptography harmful [1], there are libraries being developed and products being build.
+Even though there are good reasons to consider javascript cryptography harmful [1], there are products being build to fullfil the demand for secure services on the client side.
 <p>
 One of the products is Cryptelo [2], an end-to-end encrypted file sharing service currently in heavy development.
-Cryptelo leverages the advantages of clojure tools, especially cljx to build for the JVM and javascript from the same codebase. This makes comparing the platforms much more straightforward.
+Cryptelo leverages the advantages of clojure, especially cljx to build for the JVM and javascript from the same codebase. This makes the task of comparing the two platforms very straightforward.
 Together with the Cryptelo team I tried to answer the question what performance we can expect from the client side crypto implementations on different platforms.
 </p>
 <p>
-In particular the platforms of interest were javascript in desktop and mobile browsers, java on desktops and native objective-C on ios devices.
+In particular, the platforms of interest were javascript in desktop and mobile browsers, java on desktops and native objective-C on ios devices.
 
 The crypto algorithms tested were the cipher AES, the key derivation function PBKDF2, key derivation on elliptic curves for the Diffie-Hellman key exchange and signing and signature verification.
 </p>
@@ -46,14 +46,18 @@ The crypto algorithms tested were the cipher AES, the key derivation function PB
 We learned that on a MacBook Pro from 2011, to encrypt a file of size 7MB using AES took 3.4s in Chrome 42, 2.9s in Safari 8 and 2.6s in Firefox 38. Surprisingly to decrypt the file, Safari needed twice the time of encrypting it.
 Implementation in JVM on the same machine managed to complete the same task in about 85ms.
 Ipad Air 2 from 2014 encrypted the 7MB file in 22.6s in Safari and in just 24ms in native objective-C code.
+</p>
+<p>
 40k iterations of PBKDF2 took from 260ms to 307ms in browsers and about 58ms in JVM on the MacBook. On the Ipad Air 2 it was 650ms in the browser and 20ms in the native code.
+</p>
+<p>
 Finally the operations on elliptic curves. Derivation of the shared secret in DH (without and with hashing) took from 51 to 71ms in the browsers on the MacBook, and around 1.3ms in JVM. Signing of SHA-256 hash (32 bytes) took from 13.6ms to 20.4ms in browsers and 1.9ms in JVM. Finally the verification took from 64ms to 90ms in browsers and 1.7ms in JVM.
 </p>
 <p>
 Ipad Air 2 did 40k iterations of PBKDF2 in 650ms in the browsers and 20ms in the native code. Deriving shared key took about 283ms in browser and 5.2ms in native code.
 </p>
 <p>
-We also tested other mobile devices, laptops and operating systems, and different data sizes for encryption. All the current results can be found in the spreadsheet [3].
+We also tested other mobile devices, laptops and operating systems, and different data sizes for encryption. All the results can be found in the spreadsheet [3].
 </p>
 <p>
 To conclude, the performance of the standard cryptographic algorithms implemented in javascript is reasonable for files up to several megabytes on modern mobile devices and up to several tens of megabytes on laptops. Implementation in objective-C is lightning fast in comparison and implementation in JVM on laptops is fast for even large files.
