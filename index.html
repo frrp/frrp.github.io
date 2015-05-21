@@ -43,7 +43,8 @@ In particular, the platforms of interest were <b>javascript</b> on desktop and m
 The algorithms tested were the cipher <b>AES</b>, the key derivation function <b>PBKDF2</b>, key derivation on <b>elliptic curves</b> for the Diffie-Hellman key exchange, signing and signature verification.
 </p>
 <p>
-We learned that on a MacBook Pro from 2011, to encrypt a file of size 7MB using AES took 3.4s in Chrome 42, 2.9s in Safari 8 and 2.6s in Firefox 38. Surprisingly to decrypt the file, Safari needed twice the time of encrypting it!
+For example, we learned that on a MacBook Pro from 2011, to encrypt a file of size 7MB using AES took 3.4s in Chrome 42, 2.9s in Safari 8 and 2.6s in Firefox 38. Surprisingly, to decrypt the file, Safari needed twice the time of encrypting it!
+Firefox was the fastest browser for all algorithms.
 Implementation in JVM on the same machine managed to complete the same task in about 85ms.
 Ipad Air 2 from 2014 encrypted the 7MB file in 22.6s in Safari and in just 24ms in native objective-C code.
 </p>
