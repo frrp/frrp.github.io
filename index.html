@@ -38,7 +38,7 @@
         <p>
           In particular, the platforms of interest were <b>javascript</b> on desktop and mobile browsers, <b>java</b> on desktops and native <b>objective-C</b> on ios devices.
 
-          The algorithms tested were the cipher <b>AES</b>, the key derivation function <b>PBKDF2</b>, key derivation on <b>elliptic curves</b> for the Diffie-Hellman key exchange, signing and signature verification.
+          The algorithms tested were the cipher <b>AES</b>, the key derivation function <b>PBKDF2</b>, key derivation on <b>elliptic curves</b> for the Diffie-Hellman key exchange, signing and signature verification. Google's <a href='https://github.com/google/end-to-end'>End-To-End</a> was used for the javascript implementation and <a href='https://www.bouncycastle.org/java.html'>Bouncy Castle</a> for java.
         </p>
         <p>
           For example, we learned that on a MacBook Pro from 2011, to encrypt a file of size 7MB using AES took 3.4s in Chrome 42, 2.9s in Safari 8 and 2.6s in Firefox 38. Surprisingly, to decrypt the file, Safari needed twice the time of encrypting it!
@@ -56,13 +56,11 @@
           Ipad Air 2 did 40k iterations of PBKDF2 in 650ms in the browser and in 20ms in the native code. Deriving shared key took about 283ms in browser and 5.2ms in native code.
         </p>
         <p>
-          We also tested other mobile devices, laptops and operating systems, and different data sizes for encryption. <b><a href='docs.google.com/spreadsheets/d/1RVK9ixIf2bUeUTxVxqMTpE4iC4gsr6ssfAVK9Ymm5_8/edit?usp=sharing'>All the results can be found in the spreadsheet.</a></b>
+          We also tested other mobile devices, laptops and operating systems, and different data sizes for encryption. <b><a href='https://docs.google.com/spreadsheets/d/1RVK9ixIf2bUeUTxVxqMTpE4iC4gsr6ssfAVK9Ymm5_8/edit?usp=sharing'>All the results can be found in the spreadsheet.</a></b>
         </p>
         <p>
           To conclude, the performance of the standard cryptographic algorithms implemented in javascript is reasonable for files up to several megabytes on modern mobile devices and up to several tens of megabytes on laptops. Implementation in objective-C is lightning fast in comparison and compiled java on your laptop is fast enough for encrypting your entire hard drive.
         </p>
-
-        <br><br>
 
       </section>
 
