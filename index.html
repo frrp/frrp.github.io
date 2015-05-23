@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Frrp.GitHub.io by frrp</title>
+    <title>Frrp</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-light.css">
@@ -31,9 +31,9 @@
 <article>
   <h2  class="unspaced"><a href="#crypto-benchmarks">Benchmarking client side cryptography</a></h2>
 <p>
-Even though there are good reasons to consider javascript cryptography harmful [1], there are products being build to fullfil the demand for secure services on the client side.
+Even though there are good reasons to consider <a href='http://matasano.com/articles/javascript-cryptography/'>javascript cryptography harmful</a>, the long-standing choice of tools for end-to-end encryption such as GPG is <a href='http://www.thoughtcrime.org/blog/gpg-and-me/'>not appealing to users</a> that just do not want to choose among SERPENT or IDEA or TwoFish cipher, therefore there are products being build to make secure services on the client side actually usable.
 <p>
-One of the products is Cryptelo [2], an end-to-end encrypted file sharing service currently under heavy development.
+One of the products is <a href='www.cryptelo.com'>Cryptelo</a>, an end-to-end encrypted file sharing service currently under heavy development.
 Cryptelo leverages the advantages of <b>clojure</b>, especially <b>cljx</b>, to build for the JVM and javascript from the same codebase. This makes the task of comparing the two platforms very straightforward.
 Together with the Cryptelo team I tried to answer the question <b>what performance we can expect from the client side crypto implementations</b> on different platforms.
 </p>
@@ -58,17 +58,12 @@ Finally the operations on elliptic curves. Derivation of the shared secret in DH
 Ipad Air 2 did 40k iterations of PBKDF2 in 650ms in the browser and in 20ms in the native code. Deriving shared key took about 283ms in browser and 5.2ms in native code.
 </p>
 <p>
-We also tested other mobile devices, laptops and operating systems, and different data sizes for encryption. <b>All the results can be found in the spreadsheet [3].</b>
+We also tested other mobile devices, laptops and operating systems, and different data sizes for encryption. <b><a href='docs.google.com/spreadsheets/d/1RVK9ixIf2bUeUTxVxqMTpE4iC4gsr6ssfAVK9Ymm5_8/edit?usp=sharing'>All the results can be found in the spreadsheet [4].</a></b>
 </p>
 <p>
 To conclude, the performance of the standard cryptographic algorithms implemented in javascript is reasonable for files up to several megabytes on modern mobile devices and up to several tens of megabytes on laptops. Implementation in objective-C is lightning fast in comparison and compiled java on your laptop is fast enough for encrypting your entire hard drive.
 </p>
 
-<b>References:</b>
-<br><br>[1] http://matasano.com/articles/javascript-cryptography/
-<br><br>[2] www.cryptelo.com
-<br><br>[3] https://docs.google.com/spreadsheets/d/1RVK9ixIf2bUeUTxVxqMTpE4iC4gsr6ssfAVK9Ymm5_8/edit?usp=sharing
-<!http://bit.ly/1PxujKA>
 <br><br>
     </article>
 
